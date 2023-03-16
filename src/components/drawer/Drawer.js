@@ -14,7 +14,7 @@ import "./drawer.css";
 
 const drawerWidth = 240;
 
-export default function CustomDrawer() {
+export default function CustomDrawer(props) {
   //----------------------pages objects
   let pages = [
     {
@@ -42,7 +42,9 @@ export default function CustomDrawer() {
 
   const handleLinkClick = (text) => {
     settitle(text);
+    props.setIsUpdate(false);
   };
+console.log(props);
   return (
     <Box sx={{ display: "flex" }}>
       <CssBaseline />
@@ -68,7 +70,7 @@ export default function CustomDrawer() {
         >
           <div className="toolbar-left" style={{ display: "flex" }}>
             <HomeOutlinedIcon style={{ marginRight: "10px" }} />
-            <span style={{ marginTop: "5px" }}> Account - {title} </span>
+            <span style={{ marginTop: "5px" }}> Account - {props.isUpdate.length > 0 ? props.isUpdate : title}</span>
           </div>
           <div className="toolbar-right">
             <p style={{ marginTop: "5px" }}>Se deconnector</p>
@@ -92,10 +94,19 @@ export default function CustomDrawer() {
         >
           InstaPlayer
         </Toolbar>
-        <List style={{ marginTop: "60px", }}>
+        <List style={{ marginTop: "60px" }}>
           {pages.map((text, index) => (
-            <ListItem key={index} disablePadding>
-              <ListItemButton>
+            <ListItem
+              key={index}
+              disablePadding
+              style={{
+                display: "flex",
+                // justifyContent: "center",
+                alignItems: "center",
+                paddingLeft:"18px",
+                paddingBottom:"15px"
+              }}
+            >
                 <Link
                   to={text.route}
                   className="links"
@@ -104,7 +115,6 @@ export default function CustomDrawer() {
                 >
                   {text.label}
                 </Link>
-              </ListItemButton>
             </ListItem>
           ))}
         </List>

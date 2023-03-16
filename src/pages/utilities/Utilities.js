@@ -2,10 +2,10 @@ import React from "react";
 import Box from "@mui/material/Box";
 import Register from "./../../components/register/Register.js";
 
-const Utilities = () => {
+const Utilities = ({props})  => {
   return (
     <Box>
-      <Register headerValue="00001" />
+      <Register headerValue="00001" data={props} />
     </Box>
   );
 };

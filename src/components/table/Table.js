@@ -21,10 +21,10 @@ const rows = [
 export default function BasicTable(props) {
   return (
     <>
-      <TableContainer component={Paper} className="table-container">
+      <TableContainer component={Paper} className="" style={{paddingTop:"20px"}} >
         <div
           className="header"
-          style={{ width: `calc(100% - ${250}px)`, ml: `${250}px`, mt: "85px" }}
+          style={{ width: `calc(100% - ${250}px)`, ml: `${250}px`, mt:"20px"}}
         >
           {props.headerValue}
         </div>
@@ -36,6 +36,7 @@ export default function BasicTable(props) {
               <TableCell align="left">Ville&nbsp;</TableCell>
               <TableCell align="left">Status&nbsp;</TableCell>
               <TableCell align="left">Detail/Modifier&nbsp;</TableCell>
+              <TableCell align="left"></TableCell>
             </TableRow>
           </TableHead>
           <TableBody sx={{ minWidth: 650, width: 800 }}>
@@ -75,8 +76,10 @@ export default function BasicTable(props) {
                   )}
                   {row.status}
                 </TableCell>
-                <TableCell align="left" style={{ height: "70px" }}>
+                <TableCell align="left" style={{ height: "70px" }} onClick={()=> props.setIsUpdate(true)}>
                   {row.detail}
+                </TableCell>
+                <TableCell align="left" style={{ height: "70px",width:"250px" }}>
                 </TableCell>
               </TableRow>
             ))}

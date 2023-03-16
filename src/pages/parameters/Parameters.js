@@ -1,7 +1,6 @@
 import React from "react";
 import Box from "@mui/material/Box";
 import "./parameters.css";
-import { Button } from "@mui/material";
 
 const Parameters = (props) => {
   return (

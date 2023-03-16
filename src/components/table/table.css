@@ -5,14 +5,13 @@
     padding-left: 20px;
     margin-bottom: 30px;
 }
-.table-container
+/* .table-container
 {
     padding-top: 20px;
     border-radius: 15px;
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
-    /* height: 70% */
     height: 500px;
-}
+} */
 .status-active
 {
     height: 10px;

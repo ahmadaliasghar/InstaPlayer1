@@ -1,4 +1,4 @@
-import { Button, Typography } from "@mui/material";
+import { Button, FormControl, Typography } from "@mui/material";
 
 import Routing from "./../../routing/Routing";
 import { useState } from "react";
@@ -37,29 +37,42 @@ function SignIn() {
           </Typography>
           <div className="container">
             <div className="signin-box">
-              <Typography sx={{ mb: 3 }} variant="h6">Connexion</Typography>
-              <input
-                type="text"
-                placeholder="E-mail"
-                value={username}
-                required
-                onChange={(e) => setusername(e.target.value)}
-              />
-              <input
-                type="password"
-                placeholder="Mot de passe"
-                id="password"
-                value={password}
-                required
-                onChange={(e) => setpassword(e.target.value)}
-              />
-              <Button
-                variant="text"
-                style={{ textTransform: "capitalize", marginTop: "10px", fontsize: "14px", color: "black"}}
-                onClick={handleSubmit}
-              >
-                Se connector
-              </Button>
+              <Typography sx={{ mb: 3 }} variant="h6">
+                Connexion
+              </Typography>
+              <form onSubmit={handleSubmit}>
+                <input
+                  type="text"
+                  placeholder="E-mail"
+                  value={username}
+                  required
+                  onChange={(e) => setusername(e.target.value)}
+                />
+                <input
+                  type="password"
+                  placeholder="Mot de passe"
+                  id="password"
+                  value={password}
+                  required
+                  onChange={(e) => setpassword(e.target.value)}
+                />
+                <Button
+                  type={"submit"}
+                  variant="text"
+                  style={{
+                    textTransform: "capitalize",
+                    marginTop: "10px",
+                    fontsize: "14px",
+                    color: "black",
+                    textAlign: "center",
+                    margin: "auto",
+                    display:"block"
+                  }}
+                  onClick={handleSubmit}
+                >
+                  Se connector
+                </Button>
+              </form>
             </div>
           </div>
         </div>
