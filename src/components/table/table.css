@@ -28,3 +28,8 @@
     border-radius: 100%;
     margin: 0px 5px 0 0;
 }
+.detail-link {
+    text-decoration: none;
+    color: black;
+    cursor: pointer;
+}

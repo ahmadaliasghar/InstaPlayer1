@@ -7,6 +7,7 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import "./table.css";
+import { Link } from "react-router-dom";
 
 function createData(nom, reference, ville, status, detail) {
   return { nom, reference, ville, status, detail };
@@ -77,7 +78,7 @@ export default function BasicTable(props) {
                   {row.status}
                 </TableCell>
                 <TableCell align="left" style={{ height: "70px" }} onClick={()=> props.setIsUpdate(true)}>
-                  {row.detail}
+                 <Link to="/clubs/details" className="detail-link">{row.detail}</Link>
                 </TableCell>
                 <TableCell align="left" style={{ height: "70px",width:"250px" }}>
                 </TableCell>

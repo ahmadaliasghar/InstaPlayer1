@@ -8,6 +8,7 @@ import Agenda from "../pages/agenda/Agenda";
 import Parameters from "../pages/parameters/Parameters";
 import Utilities from "../pages/utilities/Utilities";
 import { useState } from "react";
+import Detail from "../pages/detail/Detail";
 const Routing = () => {
   //----------------Function called in case when searched page does not exists
   function NoMatch() {
@@ -38,6 +39,7 @@ const Routing = () => {
               <Route path="/sponsors" element={<Sponsors headerValue="Detail Sponsors" />} />
               <Route path="/parameters" element={<Parameters headerValue="Parameters"/>} />
               <Route path="/utilities" element={<Utilities />} />
+              <Route path="/clubs/details" element={<Detail />} />
               <Route path="*" element={<NoMatch />} />
             </Routes>
           </Box>

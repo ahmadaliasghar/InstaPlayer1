@@ -26,7 +26,7 @@ export default function HelperTextAligned(props) {
           <div className="field-right">
             <input type="text" placeholder="Identifiant" required />
             <input type="text" placeholder="Mot de passe" required />
-            <input type="text" placeholder="Couler 1" required style={{marginTop:"40px"}} />
+            <input type="text" placeholder="Couler 1" required style={{marginTop:"45px"}} />
             <input type="text" placeholder="Couler 2" required />
             <input type="text" placeholder="Logo" required />
             <input type="text" placeholder="image1.png" required />
