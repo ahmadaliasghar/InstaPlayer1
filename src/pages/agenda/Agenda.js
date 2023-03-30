@@ -2,6 +2,7 @@ import React from "react";
 import Box from "@mui/material/Box";
 import "./agenda.css";
 import { Button } from "@mui/material";
+import { FormattedMessage } from "react-intl";
 
 const Agenda = (props) => {
   return (
@@ -16,7 +17,12 @@ const Agenda = (props) => {
           }}
         >
           <div className="field-left">
-            <input type="text" placeholder="Nom" required />
+            <FormattedMessage id="Name">
+              {(placeholder) => (
+                <input type="text" placeholder={placeholder} required />
+              )}
+            </FormattedMessage>
+
             <input type="text" placeholder="Description" required />
           </div>
         </Box>
@@ -29,7 +35,7 @@ const Agenda = (props) => {
             marginLeft: "30px",
           }}
         >
-          Enregister
+          <FormattedMessage id="Register" />
         </Button>
       </div>
     </>

@@ -1,6 +1,7 @@
 import React from "react";
 import Box from "@mui/material/Box";
 import "./parameters.css";
+import { FormattedMessage } from "react-intl";
 
 const Parameters = (props) => {
   return (
@@ -16,9 +17,17 @@ const Parameters = (props) => {
         >
           <div className="field-left">
             <input type="text" placeholder="Import Clubs" required />
-            <input type="text" placeholder="Import Joeuers" required />
+            <FormattedMessage id="Import Players">
+              {(placeholder) => (
+                <input type="text" placeholder={placeholder} required />
+              )}
+            </FormattedMessage>
             <input type="text" placeholder="Export Clubs" required />
-            <input type="text" placeholder="Export Joeuers" required />
+            <FormattedMessage id="Export Players">
+              {(placeholder) => (
+                <input type="text" placeholder={placeholder} required />
+              )}
+            </FormattedMessage>
           </div>
         </Box>
       </div>

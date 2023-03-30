@@ -8,6 +8,7 @@ import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import "./table.css";
 import { Link } from "react-router-dom";
+import { FormattedMessage } from "react-intl";
 
 function createData(nom, reference, ville, status, detail) {
   return { nom, reference, ville, status, detail };
@@ -32,9 +33,9 @@ export default function BasicTable(props) {
         <Table sx={{ minWidth: 650 }} aria-label="simple table">
           <TableHead>
             <TableRow style={{ backgroundColor: "#F1F3F9ff", color: "grey" }}>
-              <TableCell align="left">Nom</TableCell>
+              <TableCell align="left"><FormattedMessage id='Name' /></TableCell>
               <TableCell align="left">Reference</TableCell>
-              <TableCell align="left">Ville&nbsp;</TableCell>
+              <TableCell align="left"><FormattedMessage id='City' />&nbsp;</TableCell>
               <TableCell align="left">Status&nbsp;</TableCell>
               <TableCell align="left">Detail/Modifier&nbsp;</TableCell>
               <TableCell align="left"></TableCell>
@@ -75,7 +76,7 @@ export default function BasicTable(props) {
                   ) : (
                     <div className="status-active"></div>
                   )}
-                  {row.status}
+                  <FormattedMessage id={row.status}/>
                 </TableCell>
                 <TableCell align="left" style={{ height: "70px" }} onClick={()=> props.setIsUpdate(true)}>
                  <Link to="/clubs/details" className="detail-link">{row.detail}</Link>

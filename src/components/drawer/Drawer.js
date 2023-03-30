@@ -6,11 +6,11 @@ import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
-import ListItemButton from "@mui/material/ListItemButton";
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import "./drawer.css";
+import { FormattedMessage } from "react-intl";
 
 const drawerWidth = 240;
 
@@ -44,7 +44,10 @@ export default function CustomDrawer(props) {
     settitle(text);
     props.setIsUpdate(false);
   };
-console.log(props);
+  
+  const handleLanguageChange = (e) => {
+    props.setlang(e.target.value);
+  }
   return (
     <Box sx={{ display: "flex" }}>
       <CssBaseline />
@@ -73,7 +76,7 @@ console.log(props);
             <span style={{ marginTop: "5px" }}> Account - {props.isUpdate.length > 0 ? props.isUpdate : title}</span>
           </div>
           <div className="toolbar-right">
-            <p style={{ marginTop: "5px" }}>Se deconnector</p>
+            <Link to = "/" style={{ marginTop: "5px", color: "white" }}><FormattedMessage id='Logout'/></Link>
           </div>
         </Toolbar>
       </AppBar>
@@ -92,7 +95,11 @@ console.log(props);
         <Toolbar
           style={{ paddingLeft: "30px", paddingTop: "30px", fontSize: "20px" }}
         >
-          InstaPlayer
+          InstaPlayer 
+          <select name="" id="" style={{marginLeft: "5px"}} onChange={handleLanguageChange}>
+            <option value="en-US">ENGLISH</option>
+            <option value="fr-ca">FRENCH</option>
+          </select>
         </Toolbar>
         <List style={{ marginTop: "60px" }}>
           {pages.map((text, index) => (
@@ -101,7 +108,6 @@ console.log(props);
               disablePadding
               style={{
                 display: "flex",
-                // justifyContent: "center",
                 alignItems: "center",
                 paddingLeft:"18px",
                 paddingBottom:"15px"

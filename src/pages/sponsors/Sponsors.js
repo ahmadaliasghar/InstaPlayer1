@@ -1,5 +1,6 @@
 import React from "react";
 import Box from "@mui/material/Box";
+import { FormattedMessage } from "react-intl";
 import "./sponsors.css";
 const Sponsors = (props) => {
   return (
@@ -14,7 +15,11 @@ const Sponsors = (props) => {
           }}
         >
           <div className="field-left">
-            <input type="text" placeholder="Nom" required />
+            <FormattedMessage id="Name">
+              {(placeholder) => (
+                <input type="text" placeholder={placeholder} required />
+              )}
+            </FormattedMessage>
             <input type="text" placeholder="Description" required />
             <input type="text" placeholder="Logo" required />
           </div>

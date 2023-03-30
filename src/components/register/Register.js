@@ -2,6 +2,7 @@ import * as React from "react";
 import Box from "@mui/material/Box";
 import "./register.css";
 import { Button } from "@mui/material";
+import { FormattedMessage } from "react-intl";
 
 export default function HelperTextAligned(props) {
   return (
@@ -16,18 +17,58 @@ export default function HelperTextAligned(props) {
           }}
         >
           <div className="field-left">
-            <input type="text" placeholder="Nom" required />
-            <input type="text" placeholder="Ville" required />
-            <input type="text" placeholder="Nom Dirigeant" required />
-            <input type="text" placeholder="E-mail Dirigeant" required />
-            <input type="text" placeholder="Telephone Dirigent" required />
-            <input type="text" placeholder="Desactive" required />
+            <FormattedMessage id="Name">
+              {(placeholder) => (
+                <input type="text" placeholder={placeholder} required />
+              )}
+            </FormattedMessage>
+            <FormattedMessage id="City">
+              {(placeholder) => (
+                <input type="text" placeholder={placeholder} required />
+              )}
+            </FormattedMessage>
+            <FormattedMessage id="Leader name">
+              {(placeholder) => (
+                <input type="text" placeholder={placeholder} required />
+              )}
+            </FormattedMessage>
+            <FormattedMessage id="Leader e-mail">
+              {(placeholder) => (
+                <input type="text" placeholder={placeholder} required />
+              )}
+            </FormattedMessage>
+            <FormattedMessage id="Leader Telephone">
+              {(placeholder) => (
+                <input type="text" placeholder={placeholder} required />
+              )}
+            </FormattedMessage>
+            <FormattedMessage id="Disabled">
+              {(placeholder) => (
+                <input type="text" placeholder={placeholder} required />
+              )}
+            </FormattedMessage>
           </div>
           <div className="field-right">
-            <input type="text" placeholder="Identifiant" required />
-            <input type="text" placeholder="Mot de passe" required />
-            <input type="text" placeholder="Couler 1" required style={{marginTop:"45px"}} />
-            <input type="text" placeholder="Couler 2" required />
+          <FormattedMessage id="ID">
+              {(placeholder) => (
+                <input type="text" placeholder={placeholder} required />
+              )}
+            </FormattedMessage>
+            <FormattedMessage id="Password">
+              {(placeholder) => (
+                <input type="text" placeholder={placeholder} required />
+              )}
+            </FormattedMessage>
+            <FormattedMessage id="Address 1">
+              {(placeholder) => (
+                <input type="text" placeholder={placeholder} required style={{marginTop:"45px"}}/>
+              )}
+            </FormattedMessage>
+            <FormattedMessage id="Address 2">
+              {(placeholder) => (
+                <input type="text" placeholder={placeholder} required />
+              )}
+            </FormattedMessage>
             <input type="text" placeholder="Logo" required />
             <input type="text" placeholder="image1.png" required />
           </div>
@@ -41,7 +82,7 @@ export default function HelperTextAligned(props) {
             marginLeft: "30px",
           }}
         >
-          Enregister
+          <FormattedMessage id='Register'/>
         </Button>
       </div>
     </>
