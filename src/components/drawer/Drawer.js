@@ -8,13 +8,15 @@ import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 import { Link } from "react-router-dom";
-import { useState } from "react";
 import "./drawer.css";
 import { FormattedMessage } from "react-intl";
+import { useSelector, useDispatch } from "react-redux";
+import { addValue, changeCrumb } from "../../features/updateCrumb";
 
 const drawerWidth = 240;
 
 export default function CustomDrawer(props) {
+  const bread = useSelector((state)=>state.crumb.value)
   //----------------------pages objects
   let pages = [
     {
@@ -38,16 +40,11 @@ export default function CustomDrawer(props) {
       route: "/parameters",
     },
   ];
-  const [title, settitle] = useState("Clubs");
+  const dispatch = useDispatch();
 
-  const handleLinkClick = (text) => {
-    settitle(text);
-    props.setIsUpdate(false);
-  };
-  
   const handleLanguageChange = (e) => {
     props.setlang(e.target.value);
-  }
+  };
   return (
     <Box sx={{ display: "flex" }}>
       <CssBaseline />
@@ -73,10 +70,14 @@ export default function CustomDrawer(props) {
         >
           <div className="toolbar-left" style={{ display: "flex" }}>
             <HomeOutlinedIcon style={{ marginRight: "10px" }} />
-            <span style={{ marginTop: "5px" }}> Account - {props.isUpdate.length > 0 ? props.isUpdate : title}</span>
+            <span style={{ marginTop: "5px" }}>
+                  {bread}
+            </span>
           </div>
           <div className="toolbar-right">
-            <Link to = "/" style={{ marginTop: "5px", color: "white" }}><FormattedMessage id='Logout'/></Link>
+            <Link to="/" style={{ marginTop: "5px", color: "white" }}>
+              <FormattedMessage id="Logout" />
+            </Link>
           </div>
         </Toolbar>
       </AppBar>
@@ -95,8 +96,13 @@ export default function CustomDrawer(props) {
         <Toolbar
           style={{ paddingLeft: "30px", paddingTop: "30px", fontSize: "20px" }}
         >
-          InstaPlayer 
-          <select name="" id="" style={{marginLeft: "5px"}} onChange={handleLanguageChange}>
+          InstaPlayer
+          <select
+            name=""
+            id=""
+            style={{ marginLeft: "5px" }}
+            onChange={handleLanguageChange}
+          >
             <option value="en-US">ENGLISH</option>
             <option value="fr-ca">FRENCH</option>
           </select>
@@ -109,18 +115,18 @@ export default function CustomDrawer(props) {
               style={{
                 display: "flex",
                 alignItems: "center",
-                paddingLeft:"18px",
-                paddingBottom:"15px"
+                paddingLeft: "18px",
+                paddingBottom: "15px",
               }}
             >
-                <Link
-                  to={text.route}
-                  className="links"
-                  onClick={() => handleLinkClick(text.label)}
-                  style={{ color: "black", fontSize: "14px" }}
-                >
-                  {text.label}
-                </Link>
+              <Link
+                to={text.route}
+                className="links"
+                onClick={() => dispatch(changeCrumb(text.label))}
+                style={{ color: "black", fontSize: "14px" }}
+              >
+                {text.label}
+              </Link>
             </ListItem>
           ))}
         </List>

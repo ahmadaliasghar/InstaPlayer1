@@ -23,7 +23,7 @@ function SignIn(props) {
 
   const handleLanguageChange = (e) => {
     setlang(e.target.value);
-  }
+  };
 
   return (
     <>
@@ -31,7 +31,7 @@ function SignIn(props) {
         <Routing />
       ) : (
         <Provider locale={lang}>
-        <div>
+          <div>
             <Typography
               sx={{ p: 1 }}
               variant="h4"
@@ -42,15 +42,20 @@ function SignIn(props) {
               }}
             >
               InstaPlayer
-              <select name="" id="" style={{marginLeft: "5px"}} onChange={handleLanguageChange}>
-            <option value="en-US">ENGLISH</option>
-            <option value="fr-ca">FRENCH</option>
-          </select>
+              <select
+                name=""
+                id=""
+                style={{ marginLeft: "5px" }}
+                onChange={handleLanguageChange}
+              >
+                <option value="en-US">ENGLISH</option>
+                <option value="fr-ca">FRENCH</option>
+              </select>
             </Typography>
             <div className="container">
               <div className="signin-box">
                 <Typography sx={{ mb: 3 }} variant="h6">
-                <FormattedMessage id='Login' />
+                  <FormattedMessage id="Login" />
                 </Typography>
                 <form onSubmit={handleSubmit}>
                   <input
@@ -60,18 +65,20 @@ function SignIn(props) {
                     required
                     onChange={(e) => setusername(e.target.value)}
                   />
-                  <FormattedMessage id='Password'>
-                    {placeholder => <input
-                    type="password"
-                    placeholder={placeholder}
-                    id="password"
-                    value={password}
-                    required
-                    suggested="current-password"
-                    onChange={(e) => setpassword(e.target.value)}
-                  />}
+                  <FormattedMessage id="Password">
+                    {(placeholder) => (
+                      <input
+                        type="password"
+                        placeholder={placeholder}
+                        id="password"
+                        value={password}
+                        required
+                        suggested="current-password"
+                        onChange={(e) => setpassword(e.target.value)}
+                      />
+                    )}
                   </FormattedMessage>
-                  
+
                   <Button
                     type={"submit"}
                     variant="text"
@@ -86,13 +93,13 @@ function SignIn(props) {
                     }}
                     onClick={handleSubmit}
                   >
-                    <FormattedMessage id='Connect' />
+                    <FormattedMessage id="Connect" />
                   </Button>
                 </form>
               </div>
             </div>
-        </div>
-                </Provider>
+          </div>
+        </Provider>
       )}
     </>
   );

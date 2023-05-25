@@ -30,7 +30,7 @@ const Routing = () => {
 
   return (
     <>
-      <Provider locale={lang} >
+      <Provider locale={lang}>
         <BrowserRouter>
           <CustomDrawer
             isUpdate={isUpdate && "Clubs - Details"}
@@ -49,7 +49,7 @@ const Routing = () => {
                 <Route path="/" element={<Clubs />} />
                 <Route
                   path="/clubs"
-                  element={<Clubs setIsUpdate={setIsUpdate}  />}
+                  element={<Clubs setIsUpdate={setIsUpdate} />}
                 />
                 <Route
                   path="/agenda"
